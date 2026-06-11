@@ -1,11 +1,11 @@
 ---
-title: "Proposal title"
+title: "Allrecipes Data Final Project"
 subtitle: "Proposal"
 author: 
-  - name: "Team Name"
+  - name: "Olivia Dodge"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "Proposal for final project"
 format:
   html:
     code-tools: true
@@ -21,7 +21,15 @@ execute:
 ```{r}
 #| label: load-pkgs
 #| message: false
+##install.packages("tidytuesdayR")
+library(tidytuesdayR)
 library(tidyverse)
+
+tuesdata <- tidytuesdayR::tt_load('2025-09-16')
+
+all_recipes <- tuesdata$all_recipes
+cuisines <- tuesdata$cuisines
+
 ```
 
 ## Dataset
@@ -29,16 +37,29 @@ library(tidyverse)
 ```{r}
 #| label: load-dataset
 #| message: false
+
+glimpse(all_recipes)
+glimpse(cuisines)
 ```
 
 A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
 Make sure to load the data and use inline code for some of this information.
 
+The all_recipes dataset has 14,426 rows and 16 columns, representing 14,426 recipes. The columns are name, url, author, date_published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. The cuisines dataset has 2,218 rows and 17 columns represting 2,218 recipes categorized by the country they originated from. . The columns are name, country, url, author, date published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. I chose this dataset because I thought it had a lot of data to work with and there were a lot of ways to explore the set.
+
 ## Questions
 
 The two questions you want to answer.
 
+Question 1: How do the prep time and cook time affect recipe ratings?
+
+Question 2: How do protein, fat, and carb content vary across different cuisine categories?
+
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups.
+
+For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.
