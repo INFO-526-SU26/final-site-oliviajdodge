@@ -4912,12 +4912,12 @@ $ servings       &lt;dbl&gt; 2, 16, 12, 6, 15, 6, 6, 84, 24, 1, 21, 8, 4, 10, 4,
 </div>
 <p>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</p>
 <p>Make sure to load the data and use inline code for some of this information.</p>
-<p>The all_recipes dataset has 14,426 rows and 16 columns, representing 14,426 recipes. The columns are name, url, author, date_published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. The cuisines dataset has 2,218 rows and 17 columns represting 2,218 recipes categorized by the country they originated from. . The columns are name, country, url, author, date published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. I chose this dataset because I thought it had a lot of data to work with and there were a lot of ways to explore the set.</p>
+<p>The project uses two datasets: all_recipes and cuisines. The all_recipes dataset has 14,426 rows and 16 columns, representing 14,426 recipes. The columns are name, url, author, date_published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. The cuisines dataset has 2,218 rows and 17 columns represting 2,218 recipes categorized by the country they originated from. . The columns are name, country, url, author, date published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. I chose these datasets because they contain a large amount of recipes and have information on both recipe popularity and nutritional content. This opens up the project to more types of analysis and potential visualizations!</p>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <p>The two questions you want to answer.</p>
-<p>Question 1: How do the prep time and cook time affect recipe ratings?</p>
+<p>Question 1: How do the prep time, cook time, and total recipe time affect recipe ratings?</p>
 <p>Question 2: How do protein, fat, and carb content vary across different cuisine categories?</p>
 </section>
 <section id="analysis-plan" class="level2">
@@ -4925,8 +4925,70 @@ $ servings       &lt;dbl&gt; 2, 16, 12, 6, 15, 6, 6, 84, 24, 1, 21, 8, 4, 10, 4,
 <ul>
 <li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
 </ul>
-<p>For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups.</p>
-<p>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</p>
+<p>For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups based on total time (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups. This will identify whether recipes that require longer or shorter amounts of time receive different ratings from users.</p>
+<p>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task Name</th>
+<th>Status</th>
+<th>Due</th>
+<th>Priority</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Proposal</td>
+<td>Complete</td>
+<td>June 17</td>
+<td>Medium</td>
+<td>Submitted final proposal</td>
+</tr>
+<tr class="even">
+<td>Peer Review</td>
+<td>Complete</td>
+<td>June 13</td>
+<td>Low</td>
+<td>Completed 1 peer review; other had 404 repository errors</td>
+</tr>
+<tr class="odd">
+<td>Write-Up</td>
+<td>Incomplete</td>
+<td>July 3</td>
+<td>Medium</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Presentation+Slides</td>
+<td>Incomplete</td>
+<td>July 3</td>
+<td>Medium</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Question 1 Visuals</td>
+<td>Incomplete</td>
+<td>June 26</td>
+<td>High</td>
+<td>Start these visuals first!</td>
+</tr>
+<tr class="even">
+<td>Question 2 Visuals</td>
+<td>Incomplete</td>
+<td>June 28</td>
+<td>High</td>
+<td>Finish with these visuals</td>
+</tr>
+</tbody>
+</table>
 
 
 <!-- -->
@@ -5633,13 +5695,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-50"><a href="#cb6-50"></a></span>
 <span id="cb6-51"><a href="#cb6-51"></a>Make sure to load the data and use inline code for some of this information.</span>
 <span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a>The all_recipes dataset has 14,426 rows and 16 columns, representing 14,426 recipes. The columns are name, url, author, date_published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. The cuisines dataset has 2,218 rows and 17 columns represting 2,218 recipes categorized by the country they originated from. . The columns are name, country, url, author, date published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. I chose this dataset because I thought it had a lot of data to work with and there were a lot of ways to explore the set.</span>
+<span id="cb6-53"><a href="#cb6-53"></a>The project uses two datasets: all_recipes and cuisines. The all_recipes dataset has 14,426 rows and 16 columns, representing 14,426 recipes. The columns are name, url, author, date_published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. The cuisines dataset has 2,218 rows and 17 columns represting 2,218 recipes categorized by the country they originated from. . The columns are name, country, url, author, date published, ingredients, calories, fat, carbs, protein, avg_rating, total_ratings, reviews, prep_time, cook_time, total_time, and servings. I chose these datasets because they contain a large amount of recipes and have information on both recipe popularity and nutritional content. This opens up the project to more types of analysis and potential visualizations!</span>
 <span id="cb6-54"><a href="#cb6-54"></a></span>
 <span id="cb6-55"><a href="#cb6-55"></a><span class="fu">## Questions</span></span>
 <span id="cb6-56"><a href="#cb6-56"></a></span>
 <span id="cb6-57"><a href="#cb6-57"></a>The two questions you want to answer.</span>
 <span id="cb6-58"><a href="#cb6-58"></a></span>
-<span id="cb6-59"><a href="#cb6-59"></a>Question 1: How do the prep time and cook time affect recipe ratings?</span>
+<span id="cb6-59"><a href="#cb6-59"></a>Question 1: How do the prep time, cook time, and total recipe time affect recipe ratings?</span>
 <span id="cb6-60"><a href="#cb6-60"></a></span>
 <span id="cb6-61"><a href="#cb6-61"></a>Question 2: How do protein, fat, and carb content vary across different cuisine categories?</span>
 <span id="cb6-62"><a href="#cb6-62"></a></span>
@@ -5647,9 +5709,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-64"><a href="#cb6-64"></a></span>
 <span id="cb6-65"><a href="#cb6-65"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
 <span id="cb6-66"><a href="#cb6-66"></a></span>
-<span id="cb6-67"><a href="#cb6-67"></a>For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups.</span>
+<span id="cb6-67"><a href="#cb6-67"></a>For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups based on total time (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups. This will identify whether recipes that require longer or shorter amounts of time receive different ratings from users.</span>
 <span id="cb6-68"><a href="#cb6-68"></a></span>
-<span id="cb6-69"><a href="#cb6-69"></a>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</span>
+<span id="cb6-69"><a href="#cb6-69"></a>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</span>
+<span id="cb6-70"><a href="#cb6-70"></a></span>
+<span id="cb6-71"><a href="#cb6-71"></a>| Task Name | Status | Due | Priority | Summary |</span>
+<span id="cb6-72"><a href="#cb6-72"></a>|----|----|----|----|----|</span>
+<span id="cb6-73"><a href="#cb6-73"></a>| Proposal | Complete | June 17 | Medium | Submitted final proposal |</span>
+<span id="cb6-74"><a href="#cb6-74"></a>| Peer Review | Complete | June 13 | Low | Completed 1 peer review; other had 404 repository errors |</span>
+<span id="cb6-75"><a href="#cb6-75"></a>| Write-Up | Incomplete | July 3 | Medium |  |</span>
+<span id="cb6-76"><a href="#cb6-76"></a>| Presentation+Slides | Incomplete | July 3 | Medium |  |</span>
+<span id="cb6-77"><a href="#cb6-77"></a>| Question 1 Visuals | Incomplete | June 26 | High | Start these visuals first! |</span>
+<span id="cb6-78"><a href="#cb6-78"></a>| Question 2 Visuals | Incomplete | June 28 | High | Finish with these visuals |</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
