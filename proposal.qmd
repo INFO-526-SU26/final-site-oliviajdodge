@@ -62,10 +62,16 @@ Question 2: How do protein, fat, and carb content vary across different cuisine 
 
 For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups based on total time (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups. This will identify whether recipes that require longer or shorter amounts of time receive different ratings from users.
 
-For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.
+x = Time variable (prep_time, cook_time, or total_time)
+
+y = avg_rating
+
+For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. I will use country as the cuisine category. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.
+
+Variables are country, protein, fat, and carbs.
 
 | Task Name | Status | Due | Priority | Summary |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | Proposal | Complete | June 17 | Medium | Submitted final proposal |
 | Peer Review | Complete | June 13 | Low | Completed 1 peer review; other had 404 repository errors |
 | Write-Up | Incomplete | July 3 | Medium |  |

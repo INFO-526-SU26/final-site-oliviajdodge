@@ -4926,7 +4926,10 @@ $ servings       &lt;dbl&gt; 2, 16, 12, 6, 15, 6, 6, 84, 24, 1, 21, 8, 4, 10, 4,
 <li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
 </ul>
 <p>For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups based on total time (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups. This will identify whether recipes that require longer or shorter amounts of time receive different ratings from users.</p>
-<p>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</p>
+<p>x = Time variable (prep_time, cook_time, or total_time)</p>
+<p>y = avg_rating</p>
+<p>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. I will use country as the cuisine category. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</p>
+<p>Variables are country, protein, fat, and carbs.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -5711,16 +5714,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-66"><a href="#cb6-66"></a></span>
 <span id="cb6-67"><a href="#cb6-67"></a>For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups based on total time (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups. This will identify whether recipes that require longer or shorter amounts of time receive different ratings from users.</span>
 <span id="cb6-68"><a href="#cb6-68"></a></span>
-<span id="cb6-69"><a href="#cb6-69"></a>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</span>
+<span id="cb6-69"><a href="#cb6-69"></a>x = Time variable (prep_time, cook_time, or total_time)</span>
 <span id="cb6-70"><a href="#cb6-70"></a></span>
-<span id="cb6-71"><a href="#cb6-71"></a>| Task Name | Status | Due | Priority | Summary |</span>
-<span id="cb6-72"><a href="#cb6-72"></a>|----|----|----|----|----|</span>
-<span id="cb6-73"><a href="#cb6-73"></a>| Proposal | Complete | June 17 | Medium | Submitted final proposal |</span>
-<span id="cb6-74"><a href="#cb6-74"></a>| Peer Review | Complete | June 13 | Low | Completed 1 peer review; other had 404 repository errors |</span>
-<span id="cb6-75"><a href="#cb6-75"></a>| Write-Up | Incomplete | July 3 | Medium |  |</span>
-<span id="cb6-76"><a href="#cb6-76"></a>| Presentation+Slides | Incomplete | July 3 | Medium |  |</span>
-<span id="cb6-77"><a href="#cb6-77"></a>| Question 1 Visuals | Incomplete | June 26 | High | Start these visuals first! |</span>
-<span id="cb6-78"><a href="#cb6-78"></a>| Question 2 Visuals | Incomplete | June 28 | High | Finish with these visuals |</span>
+<span id="cb6-71"><a href="#cb6-71"></a>y = avg_rating</span>
+<span id="cb6-72"><a href="#cb6-72"></a></span>
+<span id="cb6-73"><a href="#cb6-73"></a>For question 2, I will make boxplots comparing the nutrient distributions across different cuisines to see how the nutrients differ in different types of food. I will use country as the cuisine category. Because the dataset contains many countries, the analysis will focus on the 3 most common cuisine types. Additionally, I will also look at more basic summary statistics like the average amount of nutrients in cuisine types.</span>
+<span id="cb6-74"><a href="#cb6-74"></a></span>
+<span id="cb6-75"><a href="#cb6-75"></a>Variables are country, protein, fat, and carbs.</span>
+<span id="cb6-76"><a href="#cb6-76"></a></span>
+<span id="cb6-77"><a href="#cb6-77"></a>| Task Name | Status | Due | Priority | Summary |</span>
+<span id="cb6-78"><a href="#cb6-78"></a>|---------------|---------------|---------------|---------------|---------------|</span>
+<span id="cb6-79"><a href="#cb6-79"></a>| Proposal | Complete | June 17 | Medium | Submitted final proposal |</span>
+<span id="cb6-80"><a href="#cb6-80"></a>| Peer Review | Complete | June 13 | Low | Completed 1 peer review; other had 404 repository errors |</span>
+<span id="cb6-81"><a href="#cb6-81"></a>| Write-Up | Incomplete | July 3 | Medium |  |</span>
+<span id="cb6-82"><a href="#cb6-82"></a>| Presentation+Slides | Incomplete | July 3 | Medium |  |</span>
+<span id="cb6-83"><a href="#cb6-83"></a>| Question 1 Visuals | Incomplete | June 26 | High | Start these visuals first! |</span>
+<span id="cb6-84"><a href="#cb6-84"></a>| Question 2 Visuals | Incomplete | June 28 | High | Finish with these visuals |</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
