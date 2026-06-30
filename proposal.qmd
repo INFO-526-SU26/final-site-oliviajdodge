@@ -58,7 +58,7 @@ Question 2: How do protein, fat, and carb content vary across different cuisine 
 
 ## Analysis plan
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+- A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
 
 For question 1, I will look at prep time and cook time seperately, as well as the total time to make the recipe. I will make a scatterplot of the rating versus total time. Additionally, I will split the times into groups based on total time (ie. quick recipes under 30 minutes, moderate recipes 30-60 minutes, and long recipes that are over an hour) and make a boxplot of the ratings across the time groups. This will identify whether recipes that require longer or shorter amounts of time receive different ratings from users.
 
@@ -71,7 +71,7 @@ For question 2, I will make boxplots comparing the nutrient distributions across
 Variables are country, protein, fat, and carbs.
 
 | Task Name | Status | Due | Priority | Summary |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | Proposal | Complete | June 17 | Medium | Submitted final proposal |
 | Peer Review | Complete | June 13 | Low | Completed 1 peer review; other had 404 repository errors |
 | Write-Up | Incomplete | July 3 | Medium |  |
