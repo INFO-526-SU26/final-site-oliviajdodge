@@ -44,63 +44,63 @@
   {
     "objectID": "presentation.html#quarto",
     "href": "presentation.html#quarto",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Quarto",
     "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
   },
   {
     "objectID": "presentation.html#layouts",
     "href": "presentation.html#layouts",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Layouts",
     "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\nlike\nthis\n\nAnd add footnotes"
   },
   {
     "objectID": "presentation.html#code",
     "href": "presentation.html#code",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Code",
     "text": "Code\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
   },
   {
     "objectID": "presentation.html#plots",
     "href": "presentation.html#plots",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Plots",
     "text": "Plots"
   },
   {
     "objectID": "presentation.html#plot-and-text",
     "href": "presentation.html#plot-and-text",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Plot and text",
     "text": "Plot and text\n\n\n\nSome text\ngoes here"
   },
   {
     "objectID": "presentation.html#tables",
     "href": "presentation.html#tables",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Tables",
     "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
   },
   {
     "objectID": "presentation.html#images",
     "href": "presentation.html#images",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Images",
     "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
   },
   {
     "objectID": "presentation.html#math-expressions",
     "href": "presentation.html#math-expressions",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Math Expressions",
     "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
   },
   {
     "objectID": "presentation.html#feeling-adventurous",
     "href": "presentation.html#feeling-adventurous",
-    "title": "Project title",
+    "title": "Allrecipes Data Final Project",
     "section": "Feeling adventurous?",
     "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
   },
@@ -145,5 +145,54 @@
     "title": "Allrecipes Data Final Project",
     "section": "Question 1: Prep time, cook time, total time vs. ratings",
     "text": "Question 1: Prep time, cook time, total time vs. ratings\n\nIntroduction\nThe all_recipes dataset contains 14,426 recipes scraped from the online recipe website AllRecipes, and the data contains information on preparation and cook times as well as user-generated average ratings. Many people when cooking are interested in both the amount of time the recipe will take, as well as if they think the recipe is good (this can be based off of other people’s reviews). This raises the question: do quicker recipes get rated more favorable because they are convenient, or do longer, more involved recipes receive higher ratings because they produce better results? This question investigates how prep time, cook time, and average time are associated with a recipe’s average rating.\n\n\nApproach\n\n\n# A tibble: 3 × 5\n  time_group               n mean_rating median_rating sd_rating\n  &lt;fct&gt;                &lt;int&gt;       &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;\n1 Quick (&lt;30 min)       2431        4.54           4.6     0.411\n2 Moderate (30-60 min)  4915        4.51           4.6     0.420\n3 Long (&gt;60 min)        5758        4.55           4.6     0.396\n\n\nRecipes with missing or invalid (zero or negative) total time and missing average ratings were filtered out before the analysis was completed. A scatterplot of average rating against total time was created to visualize the overall relationship, with a LOESS smoothing curve overlaid on top to highight a non-linear trend across the range of times. Because the prep time and cook time may behave differently than the total time (for example, a recipe with a long cook time, like a casserole, is much different than a recipe with a large amount of prep work), a second plot compared trends for prep time and cook time separately. The recipes were grouped into three categories based on the total time quick (under 30 minutes), moderate (30 to 60 minutes), and long (over 60 minutes), and a boxplot was used to compare the distribution of ratings in these groups. Summary statistics (mean, median, and standard deviation) were also calculated for each time group to supplement the visual. Looking at the summary stats, there is not much difference in the groups. They all have a mean rating of around 4.5, and a median of 4.6.\n\n\nAnalysis (ggplot 2 required)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion\nIn all 3 visualizations, the recipe time does not show a meaningful relationship with average rating. The scatterplot’s LOESS curve is almost flat, hovering around a rating of 4.5 to 4.6 regardless of the total time. There is a small dip for short recipes and an uptick for the highest time values. The summary statistics also reflect this, as the mean ratings only vary from 4.51 to 4.55 and the median ratings are all 4.6. The boxplot confirms this as well, showing that the distributions are similar between quick, moderate, and long recipes.\nThe prep time vs cook time comparison shows some divergence at the extremes. The ratings associated with cook time trend upward through 100 minutes, and then begin to decline. Meanwhile, the ratings associated with prep time peak earlier (around 70 minutes) and then decline more sharply for recipes with longer prep times. This suggests that while moderate cook times may be more preferred, recipes that require a long hands-on prep time may lead to lower ratings due to more work being done by the cook. However, since the rating range is very small, so the main takeaway is that recipe time is not a small predictor of a recipe’s rating. Users overall appear to rate the recipes well regardless of how much time the recipe requires."
+  },
+  {
+    "objectID": "presentation.html#motivation",
+    "href": "presentation.html#motivation",
+    "title": "Allrecipes Data Final Project",
+    "section": "Motivation",
+    "text": "Motivation\n\nRecipe websites are full of options, but home cooks often choose recipes based on time available and cuisine preferences\nTwo questions arise:\n\nDoes the time a recipe takes relate to how well users rate it?\nDo different cuisines have meaningfully different nutritional profiles?\n\nUnderstanding these patterns can help both recipe platforms and home cooks make more informed choices"
+  },
+  {
+    "objectID": "presentation.html#the-data",
+    "href": "presentation.html#the-data",
+    "title": "Allrecipes Data Final Project",
+    "section": "The Data",
+    "text": "The Data\n\nTwo datasets from the TidyTuesday project (2025-09-16), sourced from an online recipe platform\n\n\n\nall_recipes\n\n14,426 recipes\nIncludes prep time, cook time, total time, nutrition, and user ratings\n\n\ncuisines\n\n2,218 recipes\nSame variables, plus country of origin\n\n\n\nBoth datasets include nutritional content (calories, fat, carbs, protein) and popularity metrics (average rating, number of reviews)"
+  },
+  {
+    "objectID": "presentation.html#research-questions",
+    "href": "presentation.html#research-questions",
+    "title": "Allrecipes Data Final Project",
+    "section": "Research Questions",
+    "text": "Research Questions\n\nHow do prep time, cook time, and total time relate to recipe ratings?\n\nAre quicker or longer recipes rated more favorably?\n\nHow do protein, fat, and carb content vary across cuisines?\n\nFocusing on the three most common cuisines: Brazilian, Canadian, and Filipino"
+  },
+  {
+    "objectID": "presentation.html#question-1-time-vs.-ratings",
+    "href": "presentation.html#question-1-time-vs.-ratings",
+    "title": "Allrecipes Data Final Project",
+    "section": "Question 1: Time vs. Ratings",
+    "text": "Question 1: Time vs. Ratings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRatings stay roughly flat (~4.5) regardless of total time - time is not a strong predictor of rating"
+  },
+  {
+    "objectID": "presentation.html#question-2-nutrients-by-cuisine",
+    "href": "presentation.html#question-2-nutrients-by-cuisine",
+    "title": "Allrecipes Data Final Project",
+    "section": "Question 2: Nutrients by Cuisine",
+    "text": "Question 2: Nutrients by Cuisine\n\n\nFilipino recipes show the highest average protein; Canadian recipes the highest average carbs"
+  },
+  {
+    "objectID": "presentation.html#conclusions",
+    "href": "presentation.html#conclusions",
+    "title": "Allrecipes Data Final Project",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nTime does not strongly predict rating: recipes are rated similarly whether quick, moderate, or long, suggesting users self-select recipes that match their expectations\nCuisine is associated with modest nutrient differences: Filipino recipes trend higher in protein, Canadian recipes trend higher in carbs, variability within cuisines exists\nLimitations: small sample sizes per cuisine and natural self-selection in ratings limit how strongly these patterns can be generalized"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Allrecipes Data Final Project",
+    "section": "References",
+    "text": "References\nData from here: https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-09-16/readme.md\nLink to presentation video: https://youtu.be/wbZoiSe8e9E"
   }
 ]

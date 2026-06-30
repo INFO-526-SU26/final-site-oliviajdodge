@@ -1,7 +1,7 @@
 ---
-title: "Project title"
-subtitle: "INFO 526 - Summer 2024 - Final Project"
-author: "Author names"
+title: "Allrecipes Data Final Project"
+subtitle: "INFO 526 - Summer 2026 - Final Project"
+author: "Olivia Dodge"
 title-slide-attributes:
   data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
   data-background-size: stretch
@@ -21,8 +21,8 @@ execute:
 #| include: false
 
 # Load packages here
-pacman::p_load(tidymodels,
-               tidyverse)
+pacman::p_load(tidyverse,
+               tidytuesdayR)
 
 ```
 
@@ -46,118 +46,127 @@ knitr::opts_chunk$set(
 #| label: load-data
 #| include: false
 # Load data here
-data(mtcars)
-mtcars$speed <- mtcars$hp / mtcars$wt
+tuesdata <- tidytuesdayR::tt_load('2025-09-16')
+all_recipes <- tuesdata$all_recipes
+cuisines <- tuesdata$cuisines
 
-data("penguins")
+recipes_time <- all_recipes |>
+  filter(!is.na(total_time), !is.na(avg_rating), total_time > 0) |>
+  mutate(
+    time_group = case_when(
+      total_time < 30 ~ "Quick (<30 min)",
+      total_time >= 30 & total_time <= 60 ~ "Moderate (30-60 min)",
+      total_time > 60 ~ "Long (>60 min)"
+    ),
+    time_group = factor(time_group,
+                        levels = c("Quick (<30 min)", "Moderate (30-60 min)", "Long (>60 min)"))
+  )
+
+top_cuisines <- cuisines |>
+  count(country, sort = TRUE) |>
+  slice_head(n = 3) |>
+  pull(country)
+
+cuisines_top <- cuisines |>
+  filter(country %in% top_cuisines) |>
+  filter(!is.na(protein), !is.na(fat), !is.na(carbs))
+
+cuisines_long <- cuisines_top |>
+  select(country, protein, fat, carbs) |>
+  pivot_longer(cols = c(protein, fat, carbs),
+               names_to = "nutrient",
+               values_to = "grams")
 ```
 
-# Using Quarto for presentations
+## Motivation
 
-## Quarto
+- Recipe websites are full of options, but home cooks often choose recipes based on time available and cuisine preferences
 
-- The presentation is created using the Quarto CLI
+- Two questions arise:
 
-- `##` sets the start of a new slide
+  - Does the time a recipe takes relate to how well users rate it?
+  - Do different cuisines have meaningfully different nutritional profiles?
 
-## Layouts
+- Understanding these patterns can help both recipe platforms and home cooks make more informed choices
 
-You can use plain text
+## The Data
 
-::::: columns
-::: {.column width="40%"}
-- or bullet points[^1]
-:::
-
-::: {.column width="60%"}
-or in two columns
-:::
-:::::
-
-[^1]: And add footnotes
-
-- like
-
-- this
-
-## Code
-
-```{r, echo=FALSE}
-model <- lm(mpg ~ speed, data = mtcars) 
-
-model |> tidy()
-
-model |> glance()
-
-```
-
-## Plots
-
-```{r}
-penguins |>
-  mutate(species = ifelse(species == "Adelie", "Adelie", "Other")) |>
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point()
-```
-
-## Plot and text
+- Two datasets from the TidyTuesday project (2025-09-16), sourced from an online recipe platform
 
 ::::: columns
 ::: {.column width="50%"}
-- Some text
+**`all_recipes`**
 
-- goes here
+- 14,426 recipes
+- Includes prep time, cook time, total time, nutrition, and user ratings
 :::
 
 ::: {.column width="50%"}
-```{r, warning=FALSE, fig.width=5.5}
-penguins |>
-  ggplot(aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot(linewidth = 0.75,
-               outlier.size = 2.5) +
-  theme_minimal(base_size = 15) +
-  theme(legend.key.size = unit(0.8, "cm"))
+**`cuisines`**
+
+- 2,218 recipes
+- Same variables, plus `country` of origin
+:::
+:::::
+
+- Both datasets include nutritional content (calories, fat, carbs, protein) and popularity metrics (average rating, number of reviews)
+
+## Research Questions
+
+::: incremental
+1.  **How do prep time, cook time, and total time relate to recipe ratings?**
+    - Are quicker or longer recipes rated more favorably?
+2.  **How do protein, fat, and carb content vary across cuisines?**
+    - Focusing on the three most common cuisines: Brazilian, Canadian, and Filipino
+:::
+
+## Question 1: Time vs. Ratings {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| warning: false
+#| message: false
+ggplot(recipes_time, aes(x = total_time, y = avg_rating)) +
+  geom_point(alpha = 0.3, color = "steelblue") +
+  geom_smooth(method = "loess", color = "darkred", se = TRUE) +
+  scale_x_continuous(limits = c(0, 300)) +
+  labs(x = "Total Time (minutes)", y = "Average Rating") +
+  theme_minimal(base_size = 13)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ggplot(recipes_time, aes(x = time_group, y = avg_rating, fill = time_group)) +
+  geom_boxplot(alpha = 0.7) +
+  labs(x = "Time Group", y = "Average Rating") +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "none", axis.text.x = element_text(angle = 20, hjust = 1))
 ```
 :::
 :::::
 
-# A new section...
+- Ratings stay roughly flat (\~4.5) regardless of total time - time is not a strong predictor of rating
 
-## Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+## Question 2: Nutrients by Cuisine {.smaller}
 
 ```{r}
-penguins |> 
-  head() |>
-  kableExtra::kable() |>
-  kableExtra::kable_styling()
+#| warning: false
+ggplot(cuisines_long, aes(x = country, y = grams, fill = country)) +
+  geom_boxplot(alpha = 0.7, outlier.alpha = 0.3) +
+  facet_wrap(~ nutrient, scales = "free_y") +
+  labs(x = "Cuisine (Country)", y = "Grams") +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "none", axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 
-## Images
+- Filipino recipes show the highest average protein; Canadian recipes the highest average carbs
 
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
+## Conclusions
 
-## Math Expressions {.smaller}
+- **Time does not strongly predict rating**: recipes are rated similarly whether quick, moderate, or long, suggesting users self-select recipes that match their expectations
 
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
+- **Cuisine is associated with modest nutrient differences**: Filipino recipes trend higher in protein, Canadian recipes trend higher in carbs, variability within cuisines exists
 
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
-- You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
-- But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+- **Limitations**: small sample sizes per cuisine and natural self-selection in ratings limit how strongly these patterns can be generalized

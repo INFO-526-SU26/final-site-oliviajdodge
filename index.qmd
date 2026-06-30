@@ -208,3 +208,9 @@ cuisines_top |>
 ### Discussion
 
 The visualizations reveal small but consistent differences in macronutrient profiles across the three cuisines. FIlipino recipes have the highest average protein content (19.3g), which is considerably more than Brazillian recipes (11.1g). Canadian recipes fall in between at 15.3g. This pattern is visible in both the boxplot and the bar chart. This may reflect the amount of meat, seafood and egg dishes in Filipino foods. Fat content is more similar among the groups, as Canadian and Filipino cuisines average around 18 to 19 grams while Brazilian recipes are lower at 13.5 grams. However, there are high fat outliers in both Canadian and Filipino recipes, suggesting that the fat content varies widely within these cuisines. Carbohydrate content shows the most separation among the nutrients, with the Canadian recipes having the highest carb content, then Brazilian, then Filipino. This could suggest that the portion sizing or specific dishes sampled in this dataset are driving these values. Overall, the data suggests that the cuisine type is associated with some differences in macronutrient composition (especially for protein), but the overlap and outliers across groups indicate that the nutrient content can vary a lot within a singular cuisine just as much as it does between cuisines.
+
+## References
+
+Data from here: <https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-09-16/readme.md>
+
+Link to presentation video: <https://youtu.be/wbZoiSe8e9E>
